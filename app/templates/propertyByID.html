@@ -2,5 +2,24 @@
 
 {% block main %}
 {% include 'flash_messages.html' %}
-<h1 class="display-5 fw-bold">Property View</h1>
+<div class="card mb-3">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="{{ url_for('get_image', filename=property.photoname)}}" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ property.title }}</h5>
+          <span class="label1">{{ property.price }}</span> 
+          <span class="label2">{{ property.type }}</span>
+          <p class="card-text">{{ property.description }}</p>
+
+          <span class="label2">{{ property.noBedRooms}} Bedrooms</span>
+          <span class="label2">{{ property.noBathRooms }} Bathrooms</span>
+          <p> {{property.location}} </p>
+          <button class="btn btn-primary"> Email Retailor </button>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

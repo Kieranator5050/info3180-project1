@@ -8,11 +8,11 @@ import os
 
 import flask
 from app import app
-from flask import render_template, request, redirect, url_for, flash
+from . import db
+from flask import render_template, request, redirect, send_from_directory, url_for, flash
 from werkzeug.utils import secure_filename
 from app.forms import PropertyForm
 from app.models import Property
-from . import db
 
 
 ###
@@ -50,7 +50,7 @@ def createProperty():
             location = form.location.data
             price = form.price.data
             type = form.type.data
-            description = form.type.data
+            description = form.description.data
 
             photo = request.files['photo']
             photoname = secure_filename(photo.filename)
@@ -68,13 +68,19 @@ def createProperty():
 @app.route('/properties')
 def viewProperties():
     """Render all the properties"""
-    return render_template('propertiesView.html')
+    properties = Property.query.all()
+    return render_template('propertiesView.html', properties=properties)
 
 
 @app.route('/properties/<propertyid>')
 def viewProperty(propertyid):
     """Render a property by it's ID"""
-    return render_template('propertyByID.html')
+    property = Property.query.filter_by(id=propertyid).first()
+    return render_template('propertyByID.html', property=property)
+
+@app.route('/uploads/<filename>')
+def get_image(filename):
+    return send_from_directory('.'+app.config['UPLOAD_FOLDER'],filename)
 
 ###
 # The functions below should be applicable to all Flask apps.

@@ -3,4 +3,22 @@
 {% block main %}
 {% include 'flash_messages.html' %}
 <h1 class="display-5 fw-bold">Properties</h1>
+
+<div class="cardDisplay">
+    {% for property in properties %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{ url_for('get_image', filename=property.photoname)}}" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">{{ property.title }}</h5>
+              <p class="card-text">{{ property.location }}</p>
+              <p class="card-text">{{ property.price }}</p>
+              
+            </div>
+            <div class="card-footer">
+                <a href="{{ url_for('viewProperty', propertyid = property.id) }}" class="btn link">View Property</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
 {% endblock %}
