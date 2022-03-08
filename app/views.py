@@ -8,6 +8,8 @@ This file creates your application.
 from app import app
 from flask import render_template, request, redirect, url_for, flash
 
+from app.forms import PropertyForm
+
 
 ###
 # Routing for your application.
@@ -24,20 +26,23 @@ def about():
     """Render the website's about page."""
     return render_template('about.html', name="Mary Jane")
 
+
 @app.route('/properties/create')
 def createProperty():
     """Render the Property Form"""
-    return render_template('propertyForm.html')
+    form = PropertyForm()
+    return render_template('propertyForm.html', form=form)
 
-@app.route('/properties')
+
+@app.route('/properties', methods=["GET", "POST"])
 def viewProperties():
-    """Render the Property Form"""
+    """Render all the properties"""
     return render_template('propertiesView.html')
 
 
 @app.route('/properties/<propertyid>')
 def viewProperty(propertyid):
-    """Render the Property Form"""
+    """Render a property by it's ID"""
     return render_template('propertyByID.html')
 
 ###
