@@ -1,5 +1,5 @@
-# flask_starter
-Starter code for a new Flask Application
+# Info3180 Project 1
+Code for Project 1
 
 Remember to always create a virtual environment and install the packages in your requirements file
 
