@@ -14,9 +14,13 @@
           <span class="label2">{{ property.type }}</span>
           <p class="card-text">{{ property.description }}</p>
 
+          <img src="{{ url_for('static', filename='bed.png') }}" width="25px" height="25px">
           <span class="label2">{{ property.noBedRooms}} Bedrooms</span>
+          <img src="{{ url_for('static', filename='bath.png') }}" width="25px" height="25px">
           <span class="label2">{{ property.noBathRooms }} Bathrooms</span>
-          <p> {{property.location}} </p>
+          <br>
+          <img src="{{ url_for('static', filename='location.png') }}" width="25px" height="25px">
+          <span> {{property.location}} </span>
           <button class="btn btn-primary"> Email Retailor </button>
         </div>
       </div>
