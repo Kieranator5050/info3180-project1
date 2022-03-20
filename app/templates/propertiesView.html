@@ -6,12 +6,15 @@
 
 <div class="cardDisplay">
     {% for property in properties %}
-        <div class="card" style="width: 18rem;">
+        <div class="card cardBackground" style="width: 18rem;">
             <img src="{{ url_for('get_image', filename=property.photoname)}}" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">{{ property.title }}</h5>
-              <p class="card-text">{{ property.location }}</p>
-              <p class="card-text">{{ property.price }}</p>
+              <h4 class="card-title">{{ property.title }}</h4>
+              <img src="{{ url_for('static', filename='location.png') }}" width="25px" height="25px">
+              <span> {{property.location}} </span>
+              <br>
+              <br>
+                <span  class="card-text priceBorder">{{ property.get_price(property.price) }}</span >
               
             </div>
             <div class="card-footer">

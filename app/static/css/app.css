@@ -23,3 +23,46 @@ body {
     background-color: inherit;
     color: white;
 }
+
+.priceBorder{
+    color: white;
+    background-color:rgb(43, 89, 134);
+    border-radius: 10px;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px;
+}
+
+.priceBorderRed{
+    color: white;
+    background-color:maroon;
+    border-radius: 10px;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px;
+}
+
+.priceBorderOrange{
+    color: white;
+    background-color:peru;
+    border-radius: 10px;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px;
+}
+
+.cardBackground{
+    background-color: whitesmoke;
+}
+
+.space{
+    margin-bottom: 15px;
+}
+
+.topSpace{
+    margin-top: 15px;
+}
+
+.rightSpace{
+    margin-right: 15px;
+}

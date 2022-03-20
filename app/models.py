@@ -34,6 +34,9 @@ class Property(db.Model):
         except NameError:
             return str(self.id)  # python 3 support
 
+    def get_price(self,price):
+        return "${:,.2f}".format(price)
+
     def __repr__(self):
         return '<Property %r>' % (self.title)
 
